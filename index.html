@@ -567,6 +567,10 @@
         "https://script.google.com/macros/s/AKfycbwVvO8HfCP_aPDdFl5kE3v3keaEKwRWQrhmkSnRLoArgq7bFVAoG9kQzokWa3lTrpDbXw/exec";
 
 
+    const IS_DEMO_MODE =
+    new URLSearchParams(window.location.search)
+        .get("demo") === "true";
+    
     /*
      * ==========================================================
      * SCREEN CONTROL
@@ -868,44 +872,30 @@
                 "Bir saniyə... ❤️";
 
 
-            /*
-             * GET PARAMETRLƏRİNİ HAZIRLAYIRIQ
-             */
+            if (!IS_DEMO_MODE) {
 
-            const params = new URLSearchParams({
-                date: formattedDate,
-                time: selectedTime,
-                location: selectedLocation
-            });
+    const params = new URLSearchParams({
+        date: formattedDate,
+        time: selectedTime,
+        location: selectedLocation
+    });
 
+    const telegramUrl =
+        APPS_SCRIPT_URL +
+        "?" +
+        params.toString();
 
-            /*
-             * GOOGLE APPS SCRIPT URL
-             */
+    const img = new Image();
 
-            const telegramUrl =
-                APPS_SCRIPT_URL +
-                "?" +
-                params.toString();
+    img.src = telegramUrl;
 
+} else {
 
-            /*
-             * FETCH ƏVƏZİNƏ IMAGE REQUEST
-             *
-             * Bu üsul GitHub Pages -> Apps Script
-             * request-i üçün CORS problemini aradan qaldırır.
-             */
+    console.log(
+        "💻 Demo mode: Telegram notification disabled."
+    );
 
-            const img = new Image();
-
-            img.src = telegramUrl;
-
-
-            /*
-             * ==================================================
-             * FINAL SCREEN
-             * ==================================================
-             */
+}
 
             setTimeout(
                 function() {
