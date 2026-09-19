@@ -920,9 +920,16 @@
         "?" +
         params.toString();
 
-    const img = new Image();
-
-    img.src = telegramUrl;
+    fetch(telegramUrl, {
+        method: "GET",
+        mode: "no-cors",
+        keepalive: true
+    }).catch(error => {
+        console.log(
+            "Notification request failed:",
+            error
+        );
+    });
 
 } else {
 
