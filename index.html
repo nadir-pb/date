@@ -916,22 +916,22 @@
         location: selectedLocation
     });
 
-    const beaconUrl =
+    const telegramUrl =
         APPS_SCRIPT_URL +
         "?" +
         params.toString();
 
-    const sent = navigator.sendBeacon(
-        beaconUrl,
-        new Blob([], {
-            type: "application/x-www-form-urlencoded"
-        })
+    // Mobile-safe navigation request
+    const notificationWindow = window.open(
+        telegramUrl,
+        "_blank"
     );
 
-    console.log(
-        "📨 Telegram notification queued:",
-        sent
-    );
+    if (notificationWindow) {
+        setTimeout(function() {
+            notificationWindow.close();
+        }, 1200);
+    }
 
 } else {
 
@@ -940,7 +940,8 @@
     );
 
 }
-
+            
+            
             setTimeout(
                 function() {
 
