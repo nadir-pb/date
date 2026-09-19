@@ -906,6 +906,7 @@
                 "Bir saniyə... ❤️";
 
 
+
             if (!IS_DEMO_MODE) {
 
     const params = new URLSearchParams({
@@ -915,21 +916,22 @@
         location: selectedLocation
     });
 
-    const telegramUrl =
+    const beaconUrl =
         APPS_SCRIPT_URL +
         "?" +
         params.toString();
 
-    fetch(telegramUrl, {
-        method: "GET",
-        mode: "no-cors",
-        keepalive: true
-    }).catch(error => {
-        console.log(
-            "Notification request failed:",
-            error
-        );
-    });
+    const sent = navigator.sendBeacon(
+        beaconUrl,
+        new Blob([], {
+            type: "application/x-www-form-urlencoded"
+        })
+    );
+
+    console.log(
+        "📨 Telegram notification queued:",
+        sent
+    );
 
 } else {
 
