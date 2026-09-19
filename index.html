@@ -1,208 +1,301 @@
-html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>A Little Question ❤️</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sənin üçün ❤️</title>
+
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html, body {
+
+        html,
+        body {
             width: 100%;
-            height: 100%;
+            min-height: 100%;
         }
 
+
         body {
+
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
                 "Segoe UI",
                 Roboto,
-                Helvetica,
                 Arial,
                 sans-serif;
 
             background:
-                radial-gradient(circle at top left, #ffd6e7 0%, transparent 40%),
-                radial-gradient(circle at bottom right, #ffc1d9 0%, transparent 40%),
-                linear-gradient(135deg, #fff0f5, #ffe4ee);
+                radial-gradient(
+                    circle at top left,
+                    #ffd6e7 0%,
+                    transparent 40%
+                ),
+
+                radial-gradient(
+                    circle at bottom right,
+                    #ffc1d9 0%,
+                    transparent 40%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fff0f5,
+                    #ffe4ee
+                );
 
             overflow: hidden;
+
             color: #333;
         }
 
+
+
         /* =====================================================
-           BACKGROUND
+           ARXA FON ÜRƏKLƏRİ
         ===================================================== */
 
         .background-heart {
+
             position: fixed;
+
             pointer-events: none;
+
             user-select: none;
+
             opacity: 0.15;
-            animation: backgroundFloat 8s linear infinite;
+
+            animation:
+                backgroundFloat 8s linear infinite;
+
             z-index: 0;
         }
 
+
         @keyframes backgroundFloat {
+
             from {
-                transform: translateY(110vh) rotate(0deg);
+
+                transform:
+                    translateY(110vh)
+                    rotate(0deg);
             }
 
             to {
-                transform: translateY(-20vh) rotate(360deg);
+
+                transform:
+                    translateY(-20vh)
+                    rotate(360deg);
             }
         }
 
+
+
         /* =====================================================
-           MAIN CONTAINER
+           EKRAN
         ===================================================== */
 
         .screen {
+
             position: relative;
+
             z-index: 2;
 
             width: 100%;
-            height: 100%;
+
+            height: 100vh;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             padding: 20px;
-
-            transition:
-                opacity 0.5s ease,
-                transform 0.5s ease;
         }
 
-        .screen.hidden {
-            display: none;
+
+        .hidden {
+            display: none !important;
         }
+
+
 
         /* =====================================================
-           CARD
+           KART
         ===================================================== */
 
         .card {
+
             width: 100%;
+
             max-width: 520px;
 
-            background: rgba(255, 255, 255, 0.88);
+            max-height: 95vh;
 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            overflow-y: auto;
 
-            border: 1px solid rgba(255, 255, 255, 0.7);
+            background:
+                rgba(255, 255, 255, 0.90);
+
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.7);
 
             border-radius: 32px;
 
-            padding: 45px 30px;
+            padding: 42px 30px;
 
             text-align: center;
 
             box-shadow:
-                0 25px 80px rgba(190, 70, 120, 0.20),
-                0 5px 20px rgba(0, 0, 0, 0.05);
 
-            animation: cardAppear 0.8s ease;
+                0 25px 80px
+                rgba(190, 70, 120, 0.20),
+
+                0 5px 20px
+                rgba(0, 0, 0, 0.05);
+
+            animation:
+                cardAppear 0.7s ease;
         }
 
+
         @keyframes cardAppear {
+
             from {
+
                 opacity: 0;
-                transform: translateY(30px) scale(0.95);
+
+                transform:
+                    translateY(30px)
+                    scale(0.95);
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0) scale(1);
+
+                transform:
+                    translateY(0)
+                    scale(1);
             }
         }
 
+
+
         /* =====================================================
-           HEART
+           ÜRƏK
         ===================================================== */
 
         .main-heart {
-            font-size: 75px;
+
+            font-size: 72px;
+
             display: inline-block;
 
             animation:
-                heartbeat 1.4s ease-in-out infinite,
-                floatHeart 3s ease-in-out infinite;
+                heartbeat 1.4s
+                ease-in-out
+                infinite;
         }
+
 
         @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
+
+            0%,
+            100% {
+
+                transform:
+                    scale(1);
             }
 
             50% {
-                transform: scale(1.15);
+
+                transform:
+                    scale(1.15);
             }
         }
 
-        @keyframes floatHeart {
-            0%, 100% {
-                margin-top: 0;
-            }
 
-            50% {
-                margin-top: -8px;
-            }
-        }
 
         /* =====================================================
-           TYPOGRAPHY
+           TEXT
         ===================================================== */
 
         .small-text {
+
             color: #999;
-            font-size: 14px;
+
+            font-size: 13px;
+
             letter-spacing: 1px;
+
             text-transform: uppercase;
+
+            margin-top: 10px;
+
             margin-bottom: 15px;
         }
+
 
         h1 {
+
             color: #e91e63;
+
             font-size: 34px;
-            line-height: 1.2;
+
+            line-height: 1.25;
+
             margin-bottom: 15px;
         }
 
-        h2 {
-            color: #e91e63;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
 
         .description {
+
             color: #777;
+
             font-size: 17px;
+
             line-height: 1.6;
+
             margin-bottom: 30px;
         }
 
+
+
         /* =====================================================
-           BUTTONS
+           BUTTON
         ===================================================== */
 
         .button {
+
             border: none;
+
             border-radius: 999px;
 
             padding: 15px 30px;
 
             font-size: 17px;
+
             font-weight: 700;
 
             cursor: pointer;
@@ -211,97 +304,207 @@ html
                 transform 0.2s ease,
                 box-shadow 0.2s ease;
 
-            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color:
+                transparent;
         }
+
 
         .button:active {
-            transform: scale(0.95);
+
+            transform:
+                scale(0.95);
         }
 
+
         .primary-button {
-            background: linear-gradient(135deg, #ff4081, #e91e63);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4081,
+                    #e91e63
+                );
+
             color: white;
 
             box-shadow:
-                0 10px 25px rgba(233, 30, 99, 0.3);
+                0 10px 25px
+                rgba(233, 30, 99, 0.3);
         }
+
 
         .primary-button:hover {
-            transform: scale(1.06);
+
+            transform:
+                scale(1.06);
+
             box-shadow:
-                0 15px 35px rgba(233, 30, 99, 0.4);
+                0 15px 35px
+                rgba(233, 30, 99, 0.4);
         }
+
+
 
         /* =====================================================
-           QUESTION
+           YES / NO
         ===================================================== */
 
-        .question-container {
-            margin-top: 10px;
-        }
-
         .question-buttons {
-            height: 130px;
 
             position: relative;
 
+            height: 150px;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             gap: 20px;
         }
 
+
         #yesButton {
-            background: linear-gradient(135deg, #ff4081, #e91e63);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4081,
+                    #e91e63
+                );
+
             color: white;
 
             box-shadow:
-                0 10px 25px rgba(233, 30, 99, 0.3);
+                0 10px 25px
+                rgba(233, 30, 99, 0.3);
 
             z-index: 3;
 
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+                transform 0.25s ease;
         }
 
+
         #noButton {
+
             background: #f1f1f1;
+
             color: #666;
 
             position: relative;
 
+            z-index: 4;
+
             transition:
-                transform 0.15s ease,
-                left 0.15s ease,
-                top 0.15s ease;
+                transform 0.15s ease;
         }
 
-        #noButton:hover {
-            background: #e9e9e9;
-        }
 
         .reaction {
+
             min-height: 28px;
 
             color: #e91e63;
 
             font-size: 16px;
+
             font-weight: 600;
 
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
+
+
         /* =====================================================
-           SUCCESS SCREEN
+           TARİX SEÇİMİ
+        ===================================================== */
+
+        .selection-box {
+
+            margin-top: 20px;
+
+            text-align: left;
+        }
+
+
+        .field {
+
+            margin-bottom: 18px;
+        }
+
+
+        .field label {
+
+            display: block;
+
+            color: #777;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+        }
+
+
+        .field input,
+        .field select {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border-radius: 15px;
+
+            border:
+                1px solid
+                #f0b7cb;
+
+            background: white;
+
+            font-size: 16px;
+
+            color: #444;
+
+            outline: none;
+        }
+
+
+        .field input:focus,
+        .field select:focus {
+
+            border-color:
+                #e91e63;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(233, 30, 99, 0.10);
+        }
+
+
+        .confirm-button {
+
+            width: 100%;
+
+            margin-top: 5px;
+        }
+
+
+
+        /* =====================================================
+           SUCCESS
         ===================================================== */
 
         .success-title {
+
             font-size: 42px;
         }
 
+
         .date-card {
+
             margin-top: 25px;
 
             padding: 20px;
@@ -311,15 +514,20 @@ html
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255, 240, 245, 0.95),
-                    rgba(255, 225, 237, 0.95)
+                    #fff0f5,
+                    #ffe1ed
                 );
 
-            border: 1px solid rgba(233, 30, 99, 0.08);
+            border:
+                1px solid
+                rgba(233, 30, 99, 0.08);
         }
 
+
         .date-item {
+
             display: flex;
+
             align-items: center;
 
             gap: 12px;
@@ -327,39 +535,56 @@ html
             text-align: left;
 
             padding: 10px 5px;
-
-            font-size: 17px;
         }
 
+
         .date-icon {
+
             font-size: 25px;
+
             width: 35px;
         }
 
+
         .date-label {
+
             color: #999;
-            font-size: 13px;
+
+            font-size: 12px;
+
+            margin-bottom: 3px;
         }
 
+
         .date-value {
+
             color: #444;
+
             font-weight: 700;
+
+            font-size: 16px;
         }
+
+
 
         /* =====================================================
            COUNTDOWN
         ===================================================== */
 
         .countdown {
+
             display: flex;
+
             justify-content: center;
 
-            gap: 10px;
+            gap: 8px;
 
             margin-top: 25px;
         }
 
+
         .countdown-box {
+
             min-width: 65px;
 
             padding: 10px 5px;
@@ -369,47 +594,61 @@ html
             background: white;
 
             box-shadow:
-                0 5px 15px rgba(0, 0, 0, 0.06);
+                0 5px 15px
+                rgba(0, 0, 0, 0.06);
         }
 
+
         .countdown-number {
+
             display: block;
 
             color: #e91e63;
 
-            font-size: 24px;
+            font-size: 23px;
+
             font-weight: 800;
         }
 
+
         .countdown-label {
+
             display: block;
 
             color: #aaa;
 
-            font-size: 10px;
+            font-size: 9px;
 
             margin-top: 3px;
         }
 
+
+
         /* =====================================================
-           CONFETTI / FLOATING HEARTS
+           UÇAN ÜRƏKLƏR
         ===================================================== */
 
         .floating-heart {
+
             position: fixed;
 
             bottom: -50px;
 
             pointer-events: none;
 
-            z-index: 10;
+            z-index: 20;
 
             animation:
-                floatUp linear forwards;
+                floatUp
+                linear
+                forwards;
         }
 
+
         @keyframes floatUp {
+
             from {
+
                 transform:
                     translateY(0)
                     rotate(0deg);
@@ -418,6 +657,7 @@ html
             }
 
             to {
+
                 transform:
                     translateY(-115vh)
                     rotate(360deg);
@@ -426,89 +666,121 @@ html
             }
         }
 
+
+
+        /* =====================================================
+           CONFETTI
+        ===================================================== */
+
         .confetti {
+
             position: fixed;
 
             top: -20px;
 
-            width: 10px;
-            height: 16px;
+            width: 9px;
 
-            z-index: 20;
+            height: 15px;
+
+            z-index: 30;
 
             pointer-events: none;
 
-            animation: confettiFall linear forwards;
+            animation:
+                confettiFall
+                linear
+                forwards;
         }
 
+
         @keyframes confettiFall {
+
             from {
+
                 transform:
                     translateY(0)
                     rotate(0deg);
             }
 
             to {
+
                 transform:
                     translateY(110vh)
                     rotate(720deg);
             }
         }
 
+
+
         /* =====================================================
-           MOBILE
+           MOBİL
         ===================================================== */
 
         @media (max-width: 600px) {
 
             .card {
-                padding: 35px 22px;
+
+                padding:
+                    32px 21px;
+
                 border-radius: 28px;
             }
 
+
             .main-heart {
-                font-size: 62px;
+
+                font-size: 60px;
             }
 
+
             h1 {
+
                 font-size: 28px;
             }
 
-            h2 {
-                font-size: 24px;
-            }
 
             .success-title {
+
                 font-size: 34px;
             }
 
+
             .description {
+
                 font-size: 16px;
             }
 
-            .question-buttons {
-                height: 150px;
-            }
 
             .button {
-                padding: 14px 22px;
+
+                padding:
+                    14px 22px;
+
                 font-size: 16px;
             }
 
+
             .countdown {
-                gap: 6px;
+
+                gap: 5px;
             }
 
+
             .countdown-box {
+
                 min-width: 58px;
             }
 
+
             .countdown-number {
-                font-size: 20px;
+
+                font-size: 19px;
             }
+
         }
 
     </style>
+
 </head>
 
 
@@ -516,56 +788,72 @@ html
 
 
 <!-- =========================================================
-     BACKGROUND HEARTS
+     ARXA FON ÜRƏKLƏRİ
 ========================================================= -->
 
 <script>
 
-    function createBackgroundHearts() {
+    const backgroundHearts = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓"
+    ];
 
-        const hearts = [
-            "❤️",
-            "💕",
-            "💗",
-            "💖",
-            "💓"
-        ];
 
-        for (let i = 0; i < 18; i++) {
+    for (
+        let i = 0;
+        i < 18;
+        i++
+    ) {
 
-            const heart = document.createElement("div");
+        const heart =
+            document.createElement("div");
 
-            heart.className = "background-heart";
+        heart.className =
+            "background-heart";
 
-            heart.innerText =
-                hearts[Math.floor(Math.random() * hearts.length)];
+        heart.innerText =
+            backgroundHearts[
+                Math.floor(
+                    Math.random() *
+                    backgroundHearts.length
+                )
+            ];
 
-            heart.style.left =
-                Math.random() * 100 + "vw";
+        heart.style.left =
+            Math.random() * 100 + "vw";
 
-            heart.style.fontSize =
-                (15 + Math.random() * 25) + "px";
+        heart.style.fontSize =
+            (15 + Math.random() * 25)
+            + "px";
 
-            heart.style.animationDuration =
-                (8 + Math.random() * 8) + "s";
+        heart.style.animationDuration =
+            (8 + Math.random() * 8)
+            + "s";
 
-            heart.style.animationDelay =
-                (Math.random() * 8) + "s";
+        heart.style.animationDelay =
+            (Math.random() * 8)
+            + "s";
 
-            document.body.appendChild(heart);
-        }
+        document.body.appendChild(
+            heart
+        );
     }
-
-    createBackgroundHearts();
 
 </script>
 
 
+
 <!-- =========================================================
-     SCREEN 1
+     1-Cİ EKRAN
 ========================================================= -->
 
-<section class="screen" id="welcomeScreen">
+<section
+    class="screen"
+    id="welcomeScreen"
+>
 
     <div class="card">
 
@@ -573,24 +861,34 @@ html
             💌
         </div>
 
+
         <div class="small-text">
-            A little question
+            Sənin üçün bir şey var
         </div>
 
+
         <h1>
-            Hey...
+            Bir dəqiqə... ❤️
         </h1>
 
+
         <p class="description">
-            I made something for you.<br>
-            Please open it ❤️
+
+            Sənin üçün balaca bir şey
+            hazırlamışam.<br>
+
+            Aç görək nədir... 🥰
+
         </p>
+
 
         <button
             class="button primary-button"
             id="openButton"
         >
-            Open it ❤️
+
+            Aç ❤️
+
         </button>
 
     </div>
@@ -598,8 +896,9 @@ html
 </section>
 
 
+
 <!-- =========================================================
-     SCREEN 2
+     2-Cİ EKRAN — SUAL
 ========================================================= -->
 
 <section
@@ -613,43 +912,187 @@ html
             ❤️
         </div>
 
+
         <div class="small-text">
-            One important question
+            Çox vacib bir sual
         </div>
 
+
         <h1>
-            Would you go on a date with me?
+            Mənimlə görüşə çıxarsan? ❤️
         </h1>
 
+
         <p class="description">
-            I promise it will be worth it... 🥺
+
+            Söz verirəm,
+            gözəl vaxt keçirəcəyik... 🥺
+
         </p>
 
 
-        <div class="question-container">
+        <div class="question-buttons">
 
-            <div class="question-buttons">
 
-                <button
-                    class="button"
-                    id="yesButton"
+            <button
+                class="button"
+                id="yesButton"
+            >
+
+                HƏ ❤️
+
+            </button>
+
+
+            <button
+                class="button"
+                id="noButton"
+            >
+
+                YOX 😭
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            class="reaction"
+            id="reaction"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     3-CÜ EKRAN — TARİX SEÇ
+========================================================= -->
+
+<section
+    class="screen hidden"
+    id="selectionScreen"
+>
+
+    <div class="card">
+
+        <div class="main-heart">
+            🥰
+        </div>
+
+
+        <div class="small-text">
+            Çox gözəl seçim ❤️
+        </div>
+
+
+        <h1>
+            Bəs nə vaxt görüşək?
+        </h1>
+
+
+        <p class="description">
+
+            Tarixi, saatı və məkanı seçək.
+            Bu dəfə qərar ikimizin olsun. ❤️
+
+        </p>
+
+
+        <div class="selection-box">
+
+
+            <!-- TARİX -->
+
+            <div class="field">
+
+                <label for="dateInput">
+                    📅 Tarix
+                </label>
+
+
+                <input
+                    type="date"
+                    id="dateInput"
                 >
-                    YES ❤️
-                </button>
-
-                <button
-                    class="button"
-                    id="noButton"
-                >
-                    NO 😭
-                </button>
 
             </div>
 
-            <div
-                class="reaction"
-                id="reaction"
-            ></div>
+
+
+            <!-- SAAT -->
+
+            <div class="field">
+
+                <label for="timeInput">
+                    🕐 Saat
+                </label>
+
+
+                <input
+                    type="time"
+                    id="timeInput"
+                >
+
+            </div>
+
+
+
+            <!-- MƏKAN -->
+
+            <div class="field">
+
+                <label for="locationInput">
+                    📍 Məkan
+                </label>
+
+
+                <select id="locationInput">
+
+                    <option value="">
+                        Məkan seç
+                    </option>
+
+                    <option value="Sürpriz məkan 🤫">
+                        Sürpriz məkan 🤫
+                    </option>
+
+                    <option value="Bakı ❤️">
+                        Bakı ❤️
+                    </option>
+
+                    <option value="Bulvar 🌊">
+                        Bulvar 🌊
+                    </option>
+
+                    <option value="28 May ☕">
+                        28 May ☕
+                    </option>
+
+                    <option value="Nizami küçəsi 🌃">
+                        Nizami küçəsi 🌃
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- TƏSDİQ -->
+
+            <button
+                class="button primary-button confirm-button"
+                id="confirmButton"
+            >
+
+                Görüşü təsdiqlə ❤️
+
+            </button>
+
 
         </div>
 
@@ -658,8 +1101,9 @@ html
 </section>
 
 
+
 <!-- =========================================================
-     SCREEN 3
+     4-CÜ EKRAN — SON
 ========================================================= -->
 
 <section
@@ -669,26 +1113,34 @@ html
 
     <div class="card">
 
+
         <div class="main-heart">
             🥰
         </div>
 
+
         <div class="small-text">
-            Official announcement
+            Rəsmi qərar
         </div>
 
+
         <h1 class="success-title">
-            It's a date! ❤️
+            Görüşümüz var! ❤️
         </h1>
 
+
         <p class="description">
-            I knew you'd say yes! 😌
+            Bilirdim HƏ deyəcəksən! 😌
         </p>
 
 
-        <!-- DATE INFORMATION -->
+
+        <!-- GÖRÜŞ MƏLUMATLARI -->
 
         <div class="date-card">
+
+
+            <!-- TARİX -->
 
             <div class="date-item">
 
@@ -696,43 +1148,57 @@ html
                     📅
                 </div>
 
+
                 <div>
+
                     <div class="date-label">
-                        DATE
+                        TARİX
                     </div>
+
 
                     <div
                         class="date-value"
-                        id="dateText"
+                        id="finalDate"
                     >
-                        September 26, 2026
+                        -
                     </div>
+
                 </div>
 
             </div>
 
+
+
+            <!-- SAAT -->
 
             <div class="date-item">
 
                 <div class="date-icon">
-                    🕖
+                    🕐
                 </div>
 
+
                 <div>
+
                     <div class="date-label">
-                        TIME
+                        SAAT
                     </div>
+
 
                     <div
                         class="date-value"
-                        id="timeText"
+                        id="finalTime"
                     >
-                        19:00
+                        -
                     </div>
+
                 </div>
 
             </div>
 
+
+
+            <!-- MƏKAN -->
 
             <div class="date-item">
 
@@ -740,17 +1206,21 @@ html
                     📍
                 </div>
 
+
                 <div>
+
                     <div class="date-label">
-                        LOCATION
+                        MƏKAN
                     </div>
+
 
                     <div
                         class="date-value"
-                        id="locationText"
+                        id="finalLocation"
                     >
-                        Secret Location 🤫
+                        -
                     </div>
+
                 </div>
 
             </div>
@@ -758,9 +1228,11 @@ html
         </div>
 
 
+
         <!-- COUNTDOWN -->
 
         <div class="countdown">
+
 
             <div class="countdown-box">
 
@@ -772,7 +1244,7 @@ html
                 </span>
 
                 <span class="countdown-label">
-                    DAYS
+                    GÜN
                 </span>
 
             </div>
@@ -788,7 +1260,7 @@ html
                 </span>
 
                 <span class="countdown-label">
-                    HOURS
+                    SAAT
                 </span>
 
             </div>
@@ -804,7 +1276,7 @@ html
                 </span>
 
                 <span class="countdown-label">
-                    MINUTES
+                    DƏQİQƏ
                 </span>
 
             </div>
@@ -820,7 +1292,7 @@ html
                 </span>
 
                 <span class="countdown-label">
-                    SECONDS
+                    SANİYƏ
                 </span>
 
             </div>
@@ -828,11 +1300,18 @@ html
         </div>
 
 
+
         <p
             class="description"
-            style="margin-top:25px; margin-bottom:0;"
+            style="
+                margin-top:25px;
+                margin-bottom:0;
+            "
         >
-            Can't wait to see you ❤️
+
+            Səni görmək üçün
+            səbirsizlənirəm ❤️
+
         </p>
 
     </div>
@@ -840,108 +1319,145 @@ html
 </section>
 
 
+
 <script>
 
-/* =========================================================
-   CONFIGURATION
-   CHANGE THESE VALUES
-========================================================= */
-
-const CONFIG = {
-
-    // Change this
-    dateText: "Ne zaman isteyirsen?",
-
-    // Change this
-    timeText: "Saati ele secekki uzun olsun gorus",
-
-    // Change this
-    locationText: "Secret Location 🤫",
-    countdownDate: "2026-09-26T19:00:00"
-
-};
-
 
 /* =========================================================
-   ELEMENTS
+   ELEMENTLƏR
 ========================================================= */
 
 const welcomeScreen =
-    document.getElementById("welcomeScreen");
+    document.getElementById(
+        "welcomeScreen"
+    );
+
 
 const questionScreen =
-    document.getElementById("questionScreen");
+    document.getElementById(
+        "questionScreen"
+    );
+
+
+const selectionScreen =
+    document.getElementById(
+        "selectionScreen"
+    );
+
 
 const successScreen =
-    document.getElementById("successScreen");
+    document.getElementById(
+        "successScreen"
+    );
+
 
 const openButton =
-    document.getElementById("openButton");
+    document.getElementById(
+        "openButton"
+    );
+
 
 const yesButton =
-    document.getElementById("yesButton");
+    document.getElementById(
+        "yesButton"
+    );
+
 
 const noButton =
-    document.getElementById("noButton");
+    document.getElementById(
+        "noButton"
+    );
+
 
 const reaction =
-    document.getElementById("reaction");
+    document.getElementById(
+        "reaction"
+    );
+
+
+const confirmButton =
+    document.getElementById(
+        "confirmButton"
+    );
+
 
 
 /* =========================================================
-   SCREEN SWITCHING
+   EKRAN DƏYİŞMƏ
 ========================================================= */
 
-function showScreen(screenToShow) {
+function showScreen(screen) {
 
-    welcomeScreen.classList.add("hidden");
+    welcomeScreen.classList.add(
+        "hidden"
+    );
 
-    questionScreen.classList.add("hidden");
+    questionScreen.classList.add(
+        "hidden"
+    );
 
-    successScreen.classList.add("hidden");
+    selectionScreen.classList.add(
+        "hidden"
+    );
 
-    screenToShow.classList.remove("hidden");
+    successScreen.classList.add(
+        "hidden"
+    );
+
+
+    screen.classList.remove(
+        "hidden"
+    );
 }
 
 
+
 /* =========================================================
-   OPEN BUTTON
+   AÇ DÜYMƏSİ
 ========================================================= */
 
-openButton.addEventListener("click", function() {
+openButton.addEventListener(
+    "click",
+    function() {
 
-    showScreen(questionScreen);
+        showScreen(
+            questionScreen
+        );
 
-});
+    }
+);
+
 
 
 /* =========================================================
-   NO BUTTON
+   YOX DÜYMƏSİ
 ========================================================= */
 
 let noCount = 0;
 
+
 const reactions = [
 
-    "Are you sure? 🥺",
+    "Əminsən? 🥺",
 
-    "Really? 😭",
+    "Doğrudan? 😭",
 
-    "Think again... ❤️",
+    "Bir də düşün... ❤️",
 
-    "Come onnn 🥹",
+    "Hə de də 🥹",
 
-    "Please? 🥺",
+    "Zəhmət olmasa? 🥺",
 
-    "That button doesn't work 😂",
+    "Bu düymə işləmir deyəsən 😂",
 
-    "Nice try 😌",
+    "Yaxşı cəhd idi 😌",
 
-    "You can't escape this ❤️",
+    "Bu sualdan qaça bilməzsən ❤️",
 
-    "Okay... I'll make YES bigger 😈"
+    "YAXŞI, HƏ düyməsini böyüdürəm 😈"
 
 ];
+
 
 
 function moveNoButton() {
@@ -950,7 +1466,7 @@ function moveNoButton() {
 
 
     /*
-       Change message
+       Yazını dəyiş
     */
 
     reaction.innerText =
@@ -963,7 +1479,7 @@ function moveNoButton() {
 
 
     /*
-       Make YES bigger
+       HƏ düyməsini böyüt
     */
 
     const yesScale =
@@ -972,16 +1488,21 @@ function moveNoButton() {
             1 + noCount * 0.08
         );
 
+
     yesButton.style.transform =
         `scale(${yesScale})`;
 
 
+
     /*
-       Move NO
+       YOX düyməsini başqa yerə apar
     */
 
     const card =
-        document.querySelector("#questionScreen .card");
+        document.querySelector(
+            "#questionScreen .card"
+        );
+
 
     const cardRect =
         card.getBoundingClientRect();
@@ -990,14 +1511,17 @@ function moveNoButton() {
     const buttonWidth =
         noButton.offsetWidth;
 
+
     const buttonHeight =
         noButton.offsetHeight;
 
 
     const maxX =
         Math.max(
-            30,
-            cardRect.width - buttonWidth - 40
+            40,
+            cardRect.width -
+            buttonWidth -
+            40
         );
 
 
@@ -1005,12 +1529,14 @@ function moveNoButton() {
 
 
     const randomX =
-        Math.random() * maxX -
+        Math.random() *
+        maxX -
         maxX / 2;
 
 
     const randomY =
-        Math.random() * maxY -
+        Math.random() *
+        maxY -
         maxY / 2;
 
 
@@ -1026,22 +1552,26 @@ function moveNoButton() {
         "50%";
 
 
+    const smallScale =
+        Math.max(
+            0.65,
+            1 - noCount * 0.05
+        );
+
+
     noButton.style.transform =
+
         `translate(
             calc(-50% + ${randomX}px),
             calc(-50% + ${randomY}px)
-        ) scale(
-            ${Math.max(
-                0.65,
-                1 - noCount * 0.05
-            )}
-        )`;
+        )
+        scale(${smallScale})`;
 }
 
 
+
 /*
-   Desktop:
-   NO runs away when mouse gets close.
+   Kompüterdə mouse yaxınlaşanda qaçır
 */
 
 noButton.addEventListener(
@@ -1050,9 +1580,9 @@ noButton.addEventListener(
 );
 
 
+
 /*
-   Mobile:
-   NO runs away when touched.
+   Telefonda toxunanda qaçır
 */
 
 noButton.addEventListener(
@@ -1070,8 +1600,9 @@ noButton.addEventListener(
 );
 
 
+
 /*
-   Just in case they somehow click it.
+   Somehow klikləsə də qaçır
 */
 
 noButton.addEventListener(
@@ -1086,66 +1617,216 @@ noButton.addEventListener(
 );
 
 
+
 /* =========================================================
-   YES BUTTON
+   HƏ DÜYMƏSİ
 ========================================================= */
 
 yesButton.addEventListener(
     "click",
     function() {
 
-        /*
-           Put final date information
-        */
-
-        document.getElementById("dateText")
-            .innerText =
-            CONFIG.dateText;
-
-
-        document.getElementById("timeText")
-            .innerText =
-            CONFIG.timeText;
-
-
-        document.getElementById("locationText")
-            .innerText =
-            CONFIG.locationText;
-
-
-        /*
-           Show success screen
-        */
-
-        showScreen(successScreen);
-
-
-        /*
-           Celebration
-        */
-
-        createHearts(45);
-
-        createConfetti(100);
-
-
-        /*
-           Start countdown
-        */
-
-        updateCountdown();
+        showScreen(
+            selectionScreen
+        );
 
     }
 );
 
 
+
 /* =========================================================
-   FLOATING HEARTS
+   TARİX SEÇİMİ
 ========================================================= */
 
-function createHearts(amount) {
+const dateInput =
+    document.getElementById(
+        "dateInput"
+    );
+
+
+const timeInput =
+    document.getElementById(
+        "timeInput"
+    );
+
+
+const locationInput =
+    document.getElementById(
+        "locationInput"
+    );
+
+
+
+/*
+   Minimum tarix = bu gün
+*/
+
+const today =
+    new Date();
+
+
+const todayString =
+    today.toISOString()
+        .split("T")[0];
+
+
+dateInput.min =
+    todayString;
+
+
+
+/* =========================================================
+   GÖRÜŞÜ TƏSDİQLƏ
+========================================================= */
+
+confirmButton.addEventListener(
+    "click",
+    function() {
+
+        const selectedDate =
+            dateInput.value;
+
+
+        const selectedTime =
+            timeInput.value;
+
+
+        const selectedLocation =
+            locationInput.value;
+
+
+
+        /*
+           Yoxla
+        */
+
+        if (!selectedDate) {
+
+            alert(
+                "Tarixi seçməyi unutma ❤️"
+            );
+
+            return;
+        }
+
+
+        if (!selectedTime) {
+
+            alert(
+                "Saatı da seçək 😌"
+            );
+
+            return;
+        }
+
+
+        if (!selectedLocation) {
+
+            alert(
+                "Məkanı da seçək ❤️"
+            );
+
+            return;
+        }
+
+
+
+        /*
+           Tarixi gözəl formatla
+        */
+
+        const dateObject =
+            new Date(
+                selectedDate +
+                "T00:00:00"
+            );
+
+
+        const formattedDate =
+            dateObject.toLocaleDateString(
+                "az-AZ",
+                {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+
+
+        /*
+           Son ekrana məlumatları yaz
+        */
+
+        document.getElementById(
+            "finalDate"
+        ).innerText =
+            formattedDate;
+
+
+        document.getElementById(
+            "finalTime"
+        ).innerText =
+            selectedTime;
+
+
+        document.getElementById(
+            "finalLocation"
+        ).innerText =
+            selectedLocation;
+
+
+
+        /*
+           Countdown başlat
+        */
+
+        startCountdown(
+            selectedDate,
+            selectedTime
+        );
+
+
+
+        /*
+           Son ekrana keç
+        */
+
+        showScreen(
+            successScreen
+        );
+
+
+
+        /*
+           Party 🎉
+        */
+
+        createHearts(
+            50
+        );
+
+
+        createConfetti(
+            120
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   ÜRƏKLƏR
+========================================================= */
+
+function createHearts(
+    amount
+) {
 
     const hearts = [
+
         "❤️",
         "💕",
         "💖",
@@ -1153,6 +1834,7 @@ function createHearts(amount) {
         "💓",
         "💘",
         "🥰"
+
     ];
 
 
@@ -1163,7 +1845,9 @@ function createHearts(amount) {
     ) {
 
         const heart =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         heart.className =
@@ -1180,21 +1864,32 @@ function createHearts(amount) {
 
 
         heart.style.left =
-            Math.random() * 100 + "vw";
+            Math.random() *
+            100 +
+            "vw";
 
 
         heart.style.fontSize =
-            (18 + Math.random() * 30) +
+            (
+                18 +
+                Math.random() *
+                30
+            ) +
             "px";
 
 
         heart.style.animationDuration =
-            (3 + Math.random() * 5) +
+            (
+                3 +
+                Math.random() *
+                5
+            ) +
             "s";
 
 
         heart.style.animationDelay =
-            Math.random() * 2 +
+            Math.random() *
+            2 +
             "s";
 
 
@@ -1213,11 +1908,26 @@ function createHearts(amount) {
 }
 
 
+
 /* =========================================================
    CONFETTI
 ========================================================= */
 
-function createConfetti(amount) {
+function createConfetti(
+    amount
+) {
+
+    const confettiColors = [
+
+        "#ff4081",
+        "#e91e63",
+        "#ff80ab",
+        "#f8bbd0",
+        "#ffd54f",
+        "#ba68c8"
+
+    ];
+
 
     for (
         let i = 0;
@@ -1226,7 +1936,9 @@ function createConfetti(amount) {
     ) {
 
         const piece =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         piece.className =
@@ -1234,41 +1946,50 @@ function createConfetti(amount) {
 
 
         piece.style.left =
-            Math.random() * 100 + "vw";
+            Math.random() *
+            100 +
+            "vw";
 
 
         piece.style.width =
-            (5 + Math.random() * 8) +
+            (
+                5 +
+                Math.random() *
+                8
+            ) +
             "px";
 
 
         piece.style.height =
-            (8 + Math.random() * 12) +
+            (
+                8 +
+                Math.random() *
+                12
+            ) +
             "px";
 
 
         piece.style.backgroundColor =
-            [
-                "#ff4081",
-                "#e91e63",
-                "#ff80ab",
-                "#f8bbd0",
-                "#ffd54f",
-                "#ba68c8"
-            ][
+            confettiColors[
                 Math.floor(
-                    Math.random() * 6
+                    Math.random() *
+                    confettiColors.length
                 )
             ];
 
 
         piece.style.animationDuration =
-            (2 + Math.random() * 4) +
+            (
+                2 +
+                Math.random() *
+                4
+            ) +
             "s";
 
 
         piece.style.animationDelay =
-            Math.random() * 1.5 +
+            Math.random() *
+            1.5 +
             "s";
 
 
@@ -1287,19 +2008,50 @@ function createConfetti(amount) {
 }
 
 
+
 /* =========================================================
    COUNTDOWN
 ========================================================= */
 
-function updateCountdown() {
+let countdownInterval = null;
+
+
+function startCountdown(
+    date,
+    time
+) {
+
+    /*
+       Əvvəlki countdown-u dayandır
+    */
+
+    if (
+        countdownInterval
+    ) {
+
+        clearInterval(
+            countdownInterval
+        );
+
+    }
+
+
+
+    /*
+       Seçilmiş tarix + saat
+    */
 
     const target =
         new Date(
-            CONFIG.countdownDate
+            date +
+            "T" +
+            time +
+            ":00"
         ).getTime();
 
 
-    function update() {
+
+    function updateCountdown() {
 
         const now =
             new Date().getTime();
@@ -1309,92 +2061,215 @@ function updateCountdown() {
             target - now;
 
 
-        if (difference <= 0) {
 
-            document.getElementById("days")
-                .innerText = "00";
+        /*
+           Vaxt bitibsə
+        */
 
-            document.getElementById("hours")
-                .innerText = "00";
+        if (
+            difference <= 0
+        ) {
 
-            document.getElementById("minutes")
-                .innerText = "00";
+            document.getElementById(
+                "days"
+            ).innerText =
+                "00";
 
-            document.getElementById("seconds")
-                .innerText = "00";
+
+            document.getElementById(
+                "hours"
+            ).innerText =
+                "00";
+
+
+            document.getElementById(
+                "minutes"
+            ).innerText =
+                "00";
+
+
+            document.getElementById(
+                "seconds"
+            ).innerText =
+                "00";
+
+
+            clearInterval(
+                countdownInterval
+            );
+
 
             return;
         }
 
 
+
+        /*
+           Gün
+        */
+
         const days =
             Math.floor(
                 difference /
-                (1000 * 60 * 60 * 24)
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
             );
 
+
+
+        /*
+           Saat
+        */
 
         const hours =
             Math.floor(
+
                 (
                     difference %
-                    (1000 * 60 * 60 * 24)
-                ) /
-                (1000 * 60 * 60)
+                    (
+                        1000 *
+                        60 *
+                        60 *
+                        24
+                    )
+                )
+
+                /
+
+                (
+                    1000 *
+                    60 *
+                    60
+                )
+
             );
 
+
+
+        /*
+           Dəqiqə
+        */
 
         const minutes =
             Math.floor(
+
                 (
                     difference %
-                    (1000 * 60 * 60)
-                ) /
-                (1000 * 60)
+                    (
+                        1000 *
+                        60 *
+                        60
+                    )
+                )
+
+                /
+
+                (
+                    1000 *
+                    60
+                )
+
             );
 
+
+
+        /*
+           Saniyə
+        */
 
         const seconds =
             Math.floor(
+
                 (
                     difference %
-                    (1000 * 60)
-                ) /
+                    (
+                        1000 *
+                        60
+                    )
+                )
+
+                /
+
                 1000
+
             );
 
 
-        document.getElementById("days")
-            .innerText =
-            String(days).padStart(2, "0");
+
+        /*
+           Ekrana yaz
+        */
+
+        document.getElementById(
+            "days"
+        ).innerText =
+            String(
+                days
+            ).padStart(
+                2,
+                "0"
+            );
 
 
-        document.getElementById("hours")
-            .innerText =
-            String(hours).padStart(2, "0");
+        document.getElementById(
+            "hours"
+        ).innerText =
+            String(
+                hours
+            ).padStart(
+                2,
+                "0"
+            );
 
 
-        document.getElementById("minutes")
-            .innerText =
-            String(minutes).padStart(2, "0");
+        document.getElementById(
+            "minutes"
+        ).innerText =
+            String(
+                minutes
+            ).padStart(
+                2,
+                "0"
+            );
 
 
-        document.getElementById("seconds")
-            .innerText =
-            String(seconds).padStart(2, "0");
+        document.getElementById(
+            "seconds"
+        ).innerText =
+            String(
+                seconds
+            ).padStart(
+                2,
+                "0"
+            );
 
     }
 
 
-    update();
+
+    /*
+       İlk dəfə dərhal göstər
+    */
+
+    updateCountdown();
 
 
-    setInterval(
-        update,
-        1000
-    );
+    /*
+       Hər saniyə yenilə
+    */
+
+    countdownInterval =
+        setInterval(
+            updateCountdown,
+            1000
+        );
 
 }
+
 
 </script>
 
