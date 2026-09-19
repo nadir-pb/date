@@ -851,50 +851,30 @@
             confirmButton.textContent =
                 "Bir saniyə... ❤️";
 
-
             try {
 
-                await fetch(
-                    APPS_SCRIPT_URL,
-                    {
-                        method: "POST",
+    const params = new URLSearchParams({
+        date: formattedDate,
+        time: selectedTime,
+        location: selectedLocation
+    });
 
-                        mode: "no-cors",
+    await fetch(
+        APPS_SCRIPT_URL + "?" + params.toString(),
+        {
+            method: "GET",
+            mode: "no-cors"
+        }
+    );
 
-                        headers: {
-                            "Content-Type":
-                                "text/plain;charset=utf-8"
-                        },
+} catch (error) {
 
-                        body: JSON.stringify({
+    console.error(
+        "Telegram notification error:",
+        error
+    );
 
-                            date:
-                                formattedDate,
-
-                            time:
-                                selectedTime,
-
-                            location:
-                                selectedLocation
-
-                        })
-                    }
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Telegram notification error:",
-                    error
-                );
-
-            }
-
-
-            /*
-             * Telegram göndərilməsi üçün bir az vaxt
-             * veririk və final ekranı açırıq.
-             */
+}
 
             setTimeout(
                 function() {
