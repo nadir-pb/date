@@ -420,6 +420,21 @@
 
             <div class="form-group">
 
+    <label for="nameInput">
+        👤 Adın
+    </label>
+
+    <input
+        type="text"
+        id="nameInput"
+        placeholder="Adını yaz ❤️"
+        maxlength="50"
+    >
+
+</div>
+
+            <div class="form-group">
+
                 <label for="dateInput">
                     📅 Tarix
                 </label>
@@ -712,6 +727,9 @@
      * ==========================================================
      */
 
+    const nameInput =
+    document.getElementById("nameInput");
+    
     const dateInput =
         document.getElementById("dateInput");
 
@@ -761,6 +779,9 @@
 
             formError.style.display = "none";
 
+            const selectedName =
+                nameInput.value.trim();
+
             const selectedDate =
                 dateInput.value;
 
@@ -776,6 +797,19 @@
              * VALIDATION
              * ==================================================
              */
+
+            if (!selectedName) {
+
+    formError.textContent =
+        "Adını yazmağı unutma ❤️";
+
+    formError.style.display =
+        "block";
+
+    nameInput.focus();
+
+    return;
+}
 
             if (!selectedDate) {
 
@@ -875,6 +909,7 @@
             if (!IS_DEMO_MODE) {
 
     const params = new URLSearchParams({
+        name: selectedName,
         date: formattedDate,
         time: selectedTime,
         location: selectedLocation
