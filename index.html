@@ -7,6 +7,7 @@
     <title>Sənin üçün ❤️</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -306,6 +307,7 @@
         }
 
         @media (max-width: 500px) {
+
             .card {
                 padding: 28px 18px;
                 border-radius: 25px;
@@ -332,6 +334,7 @@
                 padding: 14px 20px;
             }
         }
+
     </style>
 </head>
 
@@ -560,8 +563,9 @@
      * ==========================================================
      */
 
-   const APPS_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwVvO8HfCP_aPDdFl5kE3v3keaEKwRWQrhmkSnRLoArgq7bFVAoG9kQzokWa3lTrpDbXw/exec";
+    const APPS_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbwVvO8HfCP_aPDdFl5kE3v3keaEKwRWQrhmkSnRLoArgq7bFVAoG9kQzokWa3lTrpDbXw/exec";
+
 
     /*
      * ==========================================================
@@ -607,6 +611,7 @@
         "Son şansın... ❤️"
     ];
 
+
     let noCount = 0;
 
 
@@ -636,10 +641,12 @@
             );
 
         const x =
-            Math.random() * maxX - (rect.width / 2 - buttonRect.width / 2);
+            Math.random() * maxX -
+            (rect.width / 2 - buttonRect.width / 2);
 
         const y =
-            Math.random() * maxY - (rect.height / 2 - buttonRect.height / 2);
+            Math.random() * maxY -
+            (rect.height / 2 - buttonRect.height / 2);
 
         noButton.style.transform =
             `translate(${x}px, ${y}px)`;
@@ -648,6 +655,7 @@
             noMessages[
                 (noCount - 1) % noMessages.length
             ];
+
 
         /*
          * HƏ düyməsini bir az böyüdürük 😄
@@ -666,6 +674,7 @@
         moveNoButton
     );
 
+
     noButton.addEventListener(
         "touchstart",
         function(event) {
@@ -679,6 +688,7 @@
             passive: false
         }
     );
+
 
     noButton.addEventListener(
         "click",
@@ -743,7 +753,7 @@
 
     confirmButton.addEventListener(
         "click",
-        async function() {
+        function() {
 
             formError.style.display = "none";
 
@@ -758,7 +768,9 @@
 
 
             /*
+             * ==================================================
              * VALIDATION
+             * ==================================================
              */
 
             if (!selectedDate) {
@@ -798,7 +810,9 @@
 
 
             /*
+             * ==================================================
              * DISPLAY DATE
+             * ==================================================
              */
 
             const dateObject =
@@ -819,7 +833,9 @@
 
 
             /*
+             * ==================================================
              * DISPLAY DATA ON FINAL SCREEN
+             * ==================================================
              */
 
             document.getElementById(
@@ -851,30 +867,45 @@
             confirmButton.textContent =
                 "Bir saniyə... ❤️";
 
-            try {
 
-    const params = new URLSearchParams({
-        date: formattedDate,
-        time: selectedTime,
-        location: selectedLocation
-    });
+            /*
+             * GET PARAMETRLƏRİNİ HAZIRLAYIRIQ
+             */
 
-    await fetch(
-        APPS_SCRIPT_URL + "?" + params.toString(),
-        {
-            method: "GET",
-            mode: "no-cors"
-        }
-    );
+            const params = new URLSearchParams({
+                date: formattedDate,
+                time: selectedTime,
+                location: selectedLocation
+            });
 
-} catch (error) {
 
-    console.error(
-        "Telegram notification error:",
-        error
-    );
+            /*
+             * GOOGLE APPS SCRIPT URL
+             */
 
-}
+            const telegramUrl =
+                APPS_SCRIPT_URL +
+                "?" +
+                params.toString();
+
+
+            /*
+             * FETCH ƏVƏZİNƏ IMAGE REQUEST
+             *
+             * Bu üsul GitHub Pages -> Apps Script
+             * request-i üçün CORS problemini aradan qaldırır.
+             */
+
+            const img = new Image();
+
+            img.src = telegramUrl;
+
+
+            /*
+             * ==================================================
+             * FINAL SCREEN
+             * ==================================================
+             */
 
             setTimeout(
                 function() {
@@ -919,10 +950,6 @@
 
 
         function updateCountdown() {
-
-            /*
-             * Local date/time
-             */
 
             const target =
                 new Date(
@@ -1123,7 +1150,6 @@
         }
 
     }
-
 
 </script>
 
